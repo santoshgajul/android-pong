@@ -53,6 +53,8 @@ public class PongView extends View implements OnTouchListener, OnKeyListener {
 	/** Preferences loaded at startup */
 	private int mBallSpeedModifier;
 	
+	private int eventCounter = 0;
+	
 	/** Lives modifier */
 	private int mLivesModifier;
 		
@@ -407,7 +409,12 @@ public class PongView extends View implements OnTouchListener, OnKeyListener {
 	 * Knocks up the framerate a bit to keep it difficult.
 	 */
 	private void increaseDifficulty() {
-		mBall.speed++;
+		eventCounter++;
+		if(eventCounter%5==0){
+			mBall.teleport();
+			mBall.speed*=2;			
+		}
+		mBall.speed+=2;
 	}
 
 	/**
@@ -793,6 +800,12 @@ public class PongView extends View implements OnTouchListener, OnKeyListener {
 			findVector();
 		}
 		
+		public void teleport() {
+			mBall.x = getWidth() / 2;
+	    	mBall.y = getHeight() / 2;
+			
+		}
+
 		public Ball(Ball other) {
 			x = other.x;
 			y = other.y;
