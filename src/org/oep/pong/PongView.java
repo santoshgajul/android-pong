@@ -513,9 +513,10 @@ public class PongView extends View implements OnTouchListener, OnKeyListener {
      * Paints the game!
      */
     @Override
-    public void onDraw(Canvas canvas) {
+	public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         
+        canvas.drawColor(Color.WHITE);
         if(mInitialized == false) {
         	return;
         }
@@ -535,7 +536,7 @@ public class PongView extends View implements OnTouchListener, OnKeyListener {
         
         // Draw ball stuff
         mPaint.setStyle(Style.FILL);
-        mPaint.setColor(Color.WHITE);
+        mPaint.setColor(Color.BLACK);
         
         mBall.draw(canvas);
         
@@ -577,22 +578,40 @@ public class PongView extends View implements OnTouchListener, OnKeyListener {
         }
         
         // Draw a 'lives' counter
-    	mPaint.setColor(Color.WHITE);
+    	mPaint.setColor(Color.RED);
     	mPaint.setStyle(Style.FILL_AND_STROKE);
     	for(int i = 0; i < mRed.getLives(); i++) {
     		canvas.drawCircle(Ball.RADIUS + PADDING + i * (2 * Ball.RADIUS + PADDING),
     				PADDING + Ball.RADIUS,
     				Ball.RADIUS,
     				mPaint);
+    		
     	}
+    	float redWidth = Ball.RADIUS + PADDING + 4 * (2 * Ball.RADIUS + PADDING);
+    	float redHeight = 25;
+    	String redScore = context.getString(R.string.red_score);
+    	canvas.drawText(redScore, redWidth, redHeight, mPaint);
     	
+    	String redScoreValue = context.getString(R.string.red_score_value);
+    	canvas.drawText(redScoreValue, redWidth + 65, redHeight, mPaint);
+    	
+    	// Draw a 'lives' counter
+    	mPaint.setColor(Color.BLUE);
+    	mPaint.setStyle(Style.FILL_AND_STROKE);
     	for(int i = 0; i < mBlue.getLives(); i++) {
     		canvas.drawCircle(Ball.RADIUS + PADDING + i * (2 * Ball.RADIUS + PADDING),
     				getHeight() - PADDING - Ball.RADIUS,
     				Ball.RADIUS,
     				mPaint);
     	}
-        
+    	float blueWidth = Ball.RADIUS + PADDING + 4 * (2 * Ball.RADIUS + PADDING);
+    	float blueHeight = getHeight() - 25;
+    	String blueScore = context.getString(R.string.blue_score);
+    	canvas.drawText(blueScore, blueWidth, blueHeight, mPaint);
+
+    	String blueScoreValue = context.getString(R.string.blue_score_value);
+    	canvas.drawText(blueScoreValue, blueWidth + 65, blueHeight, mPaint);
+    	
         // Announce the winner!
         if(!gameRunning()) {
         	mPaint.setColor(Color.GREEN);
@@ -971,7 +990,7 @@ public class PongView extends View implements OnTouchListener, OnKeyListener {
 		}
 		
 		public static final double BOUND = Math.PI / 9;
-		public static final float SPEED = 4.0f; 
+		public static final float SPEED = 6.0f; 
 		public static final int RADIUS = 4;
 		public static final double SALT = 4 * Math.PI / 9;
 	}
