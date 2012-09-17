@@ -15,4 +15,10 @@
     
     <string name="join_in">Touch to join in!</string>
 	<string name="pause">Pause</string>
+	
+	<string name="red_score">Red Score: </string>
+	<string name="blue_score">Blue Score: </string>
+	
+	<string name="red_score_value">0 </string>
+	<string name="blue_score_value">0 </string>
 </resources>
