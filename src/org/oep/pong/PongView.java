@@ -448,7 +448,7 @@ public class PongView extends View implements OnTouchListener, OnKeyListener {
     	Rect redTouch = new Rect(0,0,getWidth(),getHeight() / 8);
     	Rect blueTouch = new Rect(0, 7 * getHeight() / 8, getWidth(), getHeight());
     	
-    	mRed = new Paddle(Color.RED, redTouch.bottom + PADDING);
+    	mRed = new Paddle(Color.YELLOW, redTouch.bottom + PADDING);
     	mBlue = new Paddle(Color.BLUE, blueTouch.top - PADDING - Paddle.PADDLE_THICKNESS);
     	
     	mRed.setTouchbox( redTouch );
@@ -972,7 +972,7 @@ public class PongView extends View implements OnTouchListener, OnKeyListener {
 		
 		public static final double BOUND = Math.PI / 9;
 		public static final float SPEED = 4.0f; 
-		public static final int RADIUS = 4;
+		public static final int RADIUS = 6;
 		public static final double SALT = 4 * Math.PI / 9;
 	}
 
@@ -1111,6 +1111,6 @@ public class PongView extends View implements OnTouchListener, OnKeyListener {
 		private static final int PADDLE_THICKNESS = 10;
 		
 		/** Width of the paddle */
-		private static final int PADDLE_WIDTH = 40;
+		private static final int PADDLE_WIDTH = 60;
 	}
 }
