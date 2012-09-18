@@ -38,7 +38,11 @@ public class Pong extends Activity {
 	protected void setListeners () {
 		this.findViewById(R.id.title_btnNoPlayer)
 		.setOnClickListener(new OnClickListener() {
+<<<<<<< HEAD
 //			@Override
+=======
+			//@Override
+>>>>>>> otherrepo1/master
 			public void onClick(View v) {
 				startGame(false,false);
 			}
@@ -46,15 +50,23 @@ public class Pong extends Activity {
 		
 		this.findViewById(R.id.title_btnOnePlayer)
 		.setOnClickListener(new OnClickListener() {
+<<<<<<< HEAD
 //			@Override
+=======
+			//@Override
+>>>>>>> otherrepo1/master
 			public void onClick(View v) {
-				startGame(false,true);
+				startGame(false,true); 
 			}
 		});
 		
 		this.findViewById(R.id.title_btnTwoPlayer)
 		.setOnClickListener(new OnClickListener() {
+<<<<<<< HEAD
 		//	@Override
+=======
+			//@Override
+>>>>>>> otherrepo1/master
 			public void onClick(View v) {
 				startGame(true,true);
 			}
